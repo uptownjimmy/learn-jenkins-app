@@ -17,7 +17,6 @@ pipeline {
             }
             steps {
                 sh '''
-                    echo 'Small Change'
                     ls -la
                     node --version
                     npm --version
@@ -70,7 +69,7 @@ pipeline {
 
                     post {
                         always {
-                            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'playwright-report', reportFiles: 'index.html', reportName: 'Playwright Local Report', reportTitles: '', useWrapperFileDirectly: true])
+                            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'playwright-report', reportFiles: 'index.html', reportName: 'Local E2E', reportTitles: '', useWrapperFileDirectly: true])
                         }
                     }
                 }
@@ -107,7 +106,6 @@ pipeline {
                 }
             }
         }
-
 
         stage('Approval') {
             steps {
